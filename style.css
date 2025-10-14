@@ -1,0 +1,313 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+h1 {font-size: 1.5em;margin-bottom: 10px;}
+p{font-size: 1em;line-height: 1.3em;margin-bottom: 10px;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+#desktop {
+	font-family: "Jersey 15", serif;
+    font-weight: 400;
+    font-style: normal;
+    
+    height: 100%;
+    width: 100%;
+    background-image: url(paper_bg.jpeg);
+    background-size: contain;
+	overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.window {
+    position: absolute;
+    border: 2px solid #000;
+    background: #F2DBE8;
+	border-radius: 5px;
+	z-index: 1000;
+    resize: both;
+    object-fit: contain;
+
+    
+}
+.window.closed {
+	display: none;
+}
+.window.minimizedWindow {
+	display: none;
+}
+.window.fullSizeWindow {
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    border-radius: 0;
+    bottom: 32px !important;
+}
+.fullSizeWindow .ui-resizable-handle {
+	display: none;
+}
+.windowHeader {
+    background-image: linear-gradient( 90deg,#7D9EF1, #D9D9D9 );
+    text-align: right;
+    border-bottom: 2px solid #000;
+    padding: 2px;
+    cursor: move;
+    height: 28px;
+}
+.activeWindow .windowHeader {
+    background-image: linear-gradient(90deg, #7D9EF1 , #D9D9D9 );
+}
+.windowHeader > span {
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #000;
+    margin-left: 4px;
+    font-size: 19px;
+    padding: 2px 10px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    border-radius: 5px;
+    line-height: 20px;
+    width: 12px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.windowHeader > span:hover {
+	background: rgba(255,255,255,0.3);
+}
+.windowHeader > span.winclose:hover {
+	background: #f15454;
+}
+.windowHeader > span > span {
+    display: inline-block;
+    height: 8px;
+    width: 10px;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+.winminimize > span {
+	border-bottom: 3px solid #000;
+}
+.winmaximize > span {
+	border: 2px solid #000;
+	border-top: 3px solid #000;
+}
+.winmaximize > span:nth-child(2) {
+	display: none;
+}
+.fullSizeWindow .winmaximize > span:nth-child(1) {
+	margin: 2px 0 0 -4px;
+}
+.fullSizeWindow .winmaximize > span:nth-child(2) {
+    display: inline-block;
+    top: 3px;
+    left: 12px;
+}
+.wincontent {
+    padding: 10px;
+    min-width: 200px;
+    min-height: 140px;
+    border: 2px solid #000;
+    margin: 2px;
+	border-radius: 0 0 5px 5px;
+}
+.windowHeader > strong {
+    float: left;
+    margin: 0px 3px 0 10px;
+    line-height: 29px;
+    font-size: 17px;
+}
+.taskbarPanel {
+    display: inline-block;
+    border: 2px solid #000;
+    border-radius: 5px;
+    line-height: 24px;
+    margin: 2px 0 0 10px;
+    font-size: 17px;
+    padding: 0 10px;
+    background: #CCC;
+    font-weight: bold;
+	cursor: pointer;
+}
+.taskbarPanel.activeTab {
+	background: #FFF;
+}
+.taskbarPanel.minimizedTab {
+	background: #AAA;	
+}
+.taskbarPanel.minimizedTab:hover {
+	background: #DDD;
+}
+.taskbarPanel.closed {
+	display: none;
+}
+#taskbar {
+    position: fixed;
+	height: 32px;
+	border-top: 2px solid #000;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #EEE;
+}
+#icons {
+	
+    display: grid;
+    grid-template-rows: 150px 150px 150px 150px;
+    object-fit: contain;
+}
+#icons img{
+    height: 100px
+}
+#icons a {
+    display: block;
+    cursor: pointer;
+    padding: 2px 10px;
+}
+#icons a:hover {
+	
+	color: #FFF;
+}
+#templateLink {
+    position: absolute;
+    display: inline-block;
+    bottom: 10px;
+    right: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #30478c;
+}
+#logo {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    justify-content: center;
+    align-items: center
+    
+}
+#logo img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+#window0 {	
+    top: 300px;
+    left: 240px;
+
+}
+
+
+#window .wincontent {
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    
+
+}
+
+/* recipe for getting windows to size correctly */
+
+#window0 .wincontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    max-width: 100%;
+    font-family: "Jersey 15", serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow: scroll;
+      
+}
+#window1 .wincontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    max-width: 100%;
+    font-family: "Jersey 15", serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow: scroll;
+      
+}
+#window2 .wincontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    max-width: 100%;
+    font-family: "Jersey 15", serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow: scroll;
+      
+}
+
+.window .wincontent img {
+    object-fit: contain;
+    width: 100%; 
+    height: 100%; 
+    max-width: 85%; 
+    max-height: 85%;
+    
+}
+/*grid styling for my work page*/
+#grid {
+    float:left; 
+    overflow: scroll;
+}
+
+#grid div {
+    float: left;
+    padding: 0px;
+    width: 350px;
+    height: 400px;
+    text-align: center;
+}
+
+#grid div img{
+    min-width: 70%;
+    max-width: 100%;
+    
+}
+#window1 {	top: 400px; left: 120px;}
+#window2 {	top: 250px; left: 300px;}
+#window0 .wincontent {	width: 1000px; height: 400px;	}
+#window1 .wincontent {	width: 1000px; height: 700px;	}
+#window2 .wincontent {	width: 400px; height: 350px;	}
+
+/* mobile css start */
+
+@media screen and (max-width:540px){
+#window0 .wincontent {	width: auto; height: 400px;	}
+
+#window2 .wincontent {
+    width: auto;
+    height: auto;
+}
+#window3 {    top: 9px;    left: 10px;	}
+#window2 {     width: auto;    height: auto;}
+#window1 .wincontent {    width: auto;    height: 400px;	}
+
+#window0 {top: 20%;left: 1%; right: 1%;}
+    #window1{top: 20%;left: 1%; right: 1%;}
+    #window2{top: 20%;left: 1%; right: 1%;}
+	#window3 {top: 20%;left: 1%; right: 1%;}
+}
+
