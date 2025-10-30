@@ -269,8 +269,10 @@ input,select{vertical-align:middle}
 }
 /*grid styling for my work page*/
 #grid {
-    float:left; 
-    overflow: scroll;
+    /* float:left; 
+    overflow: scroll; */
+	display: flex
+	flex-direction: row;
 }
 
 #grid div {
