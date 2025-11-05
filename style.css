@@ -311,5 +311,29 @@ input,select{vertical-align:middle}
     #window1{top: 20%;left: 1%; right: 1%;}
     #window2{top: 20%;left: 1%; right: 1%;}
 	#window3 {top: 20%;left: 1%; right: 1%;}
+	
 }
+
+#work-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  border: 2px solid #000;
+  background: #fff;
+  font-family: "Jersey 15";
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #F2DBE8;
+}
+
 
