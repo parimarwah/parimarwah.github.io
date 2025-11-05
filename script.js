@@ -145,19 +145,23 @@ $(document).ready(function(){
 });
 
 // Filter Buttons
-$(".filter-btn").click(function() {
-  let filter = $(this).attr("data-filter");
+$(document).on('click', '.filter-btn', function(e) {
+  e.preventDefault();
+  var filter = $(this).data('filter');
   $(".filter-btn").removeClass("active");
   $(this).addClass("active");
 
-  if (filter == "all") {
-    $(".project").show();
+  if (filter === "all") {
+	$(".project").show();
   } else {
-    $(".project").hide();
-    $('.project[data-category="' + filter + '"]').show();
+	$(".project").hide();
+	$('.project[data-filter="' + filter + '"]').show();
   }
 });
-$(".project").click(function() {
-  let w = $(this).attr("data-window");
-  openWindow(w);
+$(document).on('click', '.project', function(e) {
+  e.preventDefault();
+  var w = $(this).data('window');
+  if (typeof w !== 'undefined') {
+	openWindow(w);
+  }
 });
