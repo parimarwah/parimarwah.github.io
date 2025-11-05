@@ -143,3 +143,21 @@ $(document).ready(function(){
     });		
 	adjustFullScreenSize();	
 });
+
+// Filter Buttons
+$(".filter-btn").click(function() {
+  let filter = $(this).attr("data-filter");
+  $(".filter-btn").removeClass("active");
+  $(this).addClass("active");
+
+  if (filter == "all") {
+    $(".project").show();
+  } else {
+    $(".project").hide();
+    $('.project[data-category="' + filter + '"]').show();
+  }
+});
+$(".project").click(function() {
+  let w = $(this).attr("data-window");
+  openWindow(w);
+});
