@@ -18,6 +18,7 @@ windowLeftPos = new Array,
 panel,
 id;
 
+
 function adjustFullScreenSize() {
 	$(".fullSizeWindow .wincontent").css("width", (window.innerWidth - 32));
 	$(".fullSizeWindow .wincontent").css("height", (window.innerHeight - 98));
@@ -57,6 +58,7 @@ function openWindow(id) {
 		$("#window" + id).removeClass("closed");
 		$("#minimPanel" + id).removeClass("closed");
 	}
+	document.getElementById("defaultOpen").click();3
 }
 function closeWindwow(id) {
 	$("#window" + id).addClass("closed");
@@ -144,24 +146,26 @@ $(document).ready(function(){
 	adjustFullScreenSize();	
 });
 
-// Filter Buttons
-$(document).on('click', '.filter-btn', function(e) {
-  e.preventDefault();
-  var filter = $(this).data('filter');
-  $(".filter-btn").removeClass("active");
-  $(this).addClass("active");
+//Buttons page
 
-  if (filter === "all") {
-	$(".project").show();
-  } else {
-	$(".project").hide();
-	$('.project[data-filter="' + filter + '"]').show();
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
   }
-});
-$(document).on('click', '.project', function(e) {
-  e.preventDefault();
-  var w = $(this).data('window');
-  if (typeof w !== 'undefined') {
-	openWindow(w);
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-});
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+
+}
