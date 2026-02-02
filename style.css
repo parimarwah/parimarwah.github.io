@@ -262,10 +262,9 @@ input,select{vertical-align:middle}
 .window .wincontent img {
     object-fit: contain;
     width: 100%; 
-     
     max-width: 85%; 
     max-height: 85%;
-    
+    height: auto;
 }
 /*grid styling for my work page*/
 #grid {
@@ -296,22 +295,222 @@ input,select{vertical-align:middle}
 
 /* mobile css start */
 
-@media screen and (max-width:540px){
-#window0 .wincontent {	width: auto; height: 400px;	}
-
-#window2 .wincontent {
-    width: auto;
-    height: auto;
+@media screen and (max-width:768px) {
+    /* Desktop background and layout */
+    #desktop {
+        background-size: cover;
+        background-position: center;
+    }
+    
+    /* Logo mobile adjustments */
+    #logo {
+        height: 200px;
+        padding: 10px 0;
+    }
+    
+    /* Mobile-friendly window positioning */
+    .window {
+        position: fixed !important;
+        top: 60px !important;
+        left: 10px !important;
+        right: 10px !important;
+        bottom: 60px !important;
+        width: auto !important;
+        height: auto !important;
+        min-width: 300px;
+        min-height: 400px;
+        resize: none;
+        border-radius: 8px;
+    }
+    
+    /* Full-screen windows on mobile */
+    .window.fullSizeWindow {
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 40px !important;
+        border-radius: 0;
+    }
+    
+    /* Window content mobile adjustments */
+    .wincontent {
+        padding: 15px;
+        max-height: calc(100% - 40px);
+        overflow-y: auto;
+    }
+    
+    /* Mobile window headers */
+    .windowHeader {
+        padding: 8px;
+        height: 40px;
+        touch-action: none;
+    }
+    
+    .windowHeader > strong {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    /* Window controls for touch */
+    .windowHeader > span {
+        width: 30px;
+        height: 30px;
+        margin-left: 6px;
+        font-size: 16px;
+        padding: 4px;
+    }
+    
+    /* Taskbar mobile */
+    #taskbar {
+        height: 50px;
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-x: auto;
+        gap: 5px;
+    }
+    
+    .taskbarPanel {
+        margin: 0;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 20px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    /* Desktop icons mobile layout */
+    #icons {
+        position: fixed;
+        bottom: 60px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: space-around;
+        grid-template: none;
+        grid-template-rows: auto;
+    }
+    
+    #icons img {
+        height: 60px;
+        width: auto;
+    }
+    
+    .openWindow {
+        width: auto;
+        text-align: center;
+        padding: 5px;
+    }
+    
+    /* Mobile-specific window sizes */
+    #window0 .wincontent, 
+    #window1 .wincontent, 
+    #window2 .wincontent {
+        width: auto !important;
+        height: auto !important;
+        max-width: 100%;
+    }
+    
+    /* Mobile tab improvements */
+    .tab {
+        flex-wrap: wrap;
+        gap: 4px;
+        justify-content: center;
+    }
+    
+    .tab button {
+        font-size: 12px;
+        padding: 4px 8px;
+        min-height: 32px;
+        flex: 0 1 auto;
+        max-width: calc(50% - 2px);
+    }
+    
+    /* Tab content mobile */
+    .tabcontent {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Iframes mobile */
+    .fp-iframe {
+        height: 250px !important;
+        min-height: 200px;
+    }
+    
+    /* Images in window content */
+    .window .wincontent img {
+        max-width: 95% !important;
+        height: auto !important;
+        margin: 10px 0;
+    }
+    
+    #grid div img {
+        max-width: 90% !important;
+        height: auto !important;
+    }
 }
-#window3 {    top: 9px;    left: 10px;	}
-#window2 {     width: auto;    height: auto;}
-#window1 .wincontent {    width: auto;    height: 400px;	}
 
-#window0 {top: 20%;left: 1%; right: 1%;}
-    #window1{top: 20%;left: 1%; right: 1%;}
-    #window2{top: 20%;left: 1%; right: 1%;}
-	#window3 {top: 20%;left: 1%; right: 1%;}
-	
+@media screen and (max-width:480px) {
+    /* Even smaller mobile adjustments */
+    #logo {
+        height: 150px;
+    }
+    
+    .window {
+        top: 50px !important;
+        left: 5px !important;
+        right: 5px !important;
+        bottom: 55px !important;
+        min-width: 280px;
+    }
+    
+    #icons {
+        bottom: 55px;
+        left: 5px;
+        right: 5px;
+    }
+    
+    #icons img {
+        height: 50px;
+    }
+    
+    .taskbarPanel {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
+    .windowHeader {
+        height: 35px;
+        padding: 5px;
+    }
+    
+    .windowHeader > strong {
+        font-size: 14px;
+        line-height: 25px;
+    }
+    
+    .wincontent {
+        padding: 10px;
+    }
+    
+    /* Typography for mobile */
+    h1 {
+        font-size: 1.3em;
+        margin-bottom: 8px;
+    }
+    
+    p {
+        font-size: 0.9em;
+        line-height: 1.4em;
+        margin-bottom: 8px;
+    }
+    
+    /* Hide footer template link on mobile */
+    #templateLink {
+        display: none;
+    }
 }
 
 
@@ -340,13 +539,11 @@ input,select{vertical-align:middle}
 
 /* Style the tab */
 .tab {
-  /* overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1; */
   display: flex;
   justify-content: center;
   gap: 2px;
   margin-bottom: 6px;
+  flex-wrap: wrap;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -354,10 +551,16 @@ input,select{vertical-align:middle}
   border: 2px solid #000;
   background: #fff;
   font-family: "Jersey 15";
-  padding: 1px 14px;
+  padding: 2px 8px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
+  touch-action: manipulation;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 /* Change background color of buttons on hover */
