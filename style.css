@@ -379,11 +379,11 @@ input,select{vertical-align:middle}
         flex-shrink: 0;
     }
     
-    /* Desktop icons mobile layout - right side */
+    /* Desktop icons mobile layout - left side */
     #icons {
         position: fixed;
         top: 50%;
-        right: 5px;
+        left: 5px;
         transform: translateY(-50%);
         display: flex;
         flex-direction: column;
@@ -481,7 +481,7 @@ input,select{vertical-align:middle}
     
     #icons {
         top: 50%;
-        right: 5px;
+        left: 5px;
         transform: translateY(-50%);
         width: 70px;
         gap: 10px;
