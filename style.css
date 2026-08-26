@@ -10,7 +10,42 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    
+    cursor: none;
+}
+
+/* sparkly pink cursor that replaces the default mouse pointer */
+#cursor-glow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 1.5rem;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+/* the fading glitter trail left behind as the cursor moves */
+.sparkle-trail{
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    color: #f59df0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    animation: sparkle-fade 0.6s ease-out forwards;
+}
+
+@keyframes sparkle-fade{
+    0%{
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.3);
+    }
 }
 
 
@@ -49,7 +84,8 @@ body{
     border:none;
 }
 
-#main-nav a:hover{
+#main-nav a:hover,
+#main-nav button:hover{
     background-color: black;
     color: pink;
 }
@@ -59,7 +95,7 @@ body{
     overflow: hidden;
     white-space: pre;
     background-color: pink;
-    padding: 0.4em 0;
+    padding: 0.2em 0;
 }
 
 .ticker-track{
@@ -70,7 +106,7 @@ body{
 .ticker-text{
     display:inline-block;
     padding-right: 4rem;
-    font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+    font-size: clamp(0.8rem, 1vw, 1rem);
 }
 
 @keyframes ticker{
