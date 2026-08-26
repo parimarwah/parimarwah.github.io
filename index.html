@@ -22,7 +22,10 @@
 
    
 <div class="ticker-wrap">
-  <p class="ticker-text" id ="ticker-text"></p>
+  <div class="ticker-track">
+    <p class="ticker-text"></p>
+    <p class="ticker-text"></p>
+  </div>
 </div>
 
 <span onclick="alert('yes?')"><div id="logo_sketch"></div></span>
@@ -33,14 +36,15 @@
     who am i
   </button>
 
-<img can-toggle id="lamp" src="assets/lavalamp.png" />
+<div id="lamp-wrap">
+  <img can-toggle id="lamp" src="assets/lavalamp.png" />
+  <p id="lamp-note">click to turn on for everyone! ↗</p>
+</div>
 <script type="module">
   import { playhtml } from "https://unpkg.com/playhtml";
   playhtml.init();
 </script>
 
-<p id="lamp-note">click to turn on for everyone! ↗</p>
-  
 </nav>
 
 

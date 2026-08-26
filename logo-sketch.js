@@ -28,13 +28,16 @@ p.setup =() => {
   //this function updates the canvas size when the window is resized
 p.windowResized = () => {
 
-  let cloudWidth = Math.min(p.windowWidth * 0.85, 1500); // width of the cloud images is 50% of the canvas width
-  let cloudHeight = cloudWidth * (2/3); // height of the cloud images is 2/3 of the width
+  let cloudWidth
   let canvasHeight
 
   if (p.windowWidth < breakpoint){
+    cloudWidth = Math.min(p.windowWidth * 0.85, 1500); // stacked clouds can each take up most of the narrow screen
+    let cloudHeight = cloudWidth * (2/3);
     canvasHeight = 20 +cloudHeight + 10 + cloudHeight + 40;
 } else {
+    cloudWidth = Math.min(p.windowWidth * 0.4, 700); // side-by-side clouds need to be narrower so they don't collide
+    let cloudHeight = cloudWidth * (2/3);
     canvasHeight= 60 + cloudHeight + 40
 }
 p.resizeCanvas(p.windowWidth, canvasHeight);
@@ -49,25 +52,25 @@ p.draw =() => {
     return; // images aren't loaded yet, skip this frame
   }
 
-  let cloudWidth = Math.min(p.width * 0.85, 1500); // width of the cloud images is 50% of the canvas width
-  let cloudHeight = cloudWidth * (2/3); // height of the cloud images is 2/3 of the width
-
-
+  let cloudWidth, cloudHeight
+  let x1, y1, x2, y2;
 
   p.frameRate(100)
   p.clear();
 
-  let x1, y1, x2, y2;
-
   // Adjust positions based on the breakpoint
 
   if (p.width < breakpoint){
-  x1 = x2 = p.width/2 - cloudWidth/2;  // centering the clouds horiizontally by setting the x position to half the canvas width minus half the cloud width as image is drawn on right 
-  y1 = 20; 
+  cloudWidth = Math.min(p.width * 0.85, 1500); // stacked clouds can each take up most of the narrow screen
+  cloudHeight = cloudWidth * (2/3);
+  x1 = x2 = p.width/2 - cloudWidth/2;  // centering the clouds horiizontally by setting the x position to half the canvas width minus half the cloud width as image is drawn on right
+  y1 = 20;
   y2 = 20 + cloudHeight + 10; // setting the y position of the second cloud to be below the first cloud by adding the height of the first cloud and a small margin
   }
 
   else{
+    cloudWidth = Math.min(p.width * 0.4, 700); // side-by-side clouds need to be narrower so they don't collide
+    cloudHeight = cloudWidth * (2/3);
     x1 = p.width/3 -cloudWidth/2; //styling for desktop
     x2 = (p.width *2)/3 - cloudWidth/2;
     y1 = 60;

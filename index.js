@@ -18,4 +18,8 @@ let thoughts = [
 ]
   
 
-document.getElementById('ticker-text').textContent = thoughts.join('               ☆               ')
+let tickerString = thoughts.join('               ☆               ')
+
+document.querySelectorAll('.ticker-text').forEach(function(el){
+  el.textContent = tickerString;
+});
