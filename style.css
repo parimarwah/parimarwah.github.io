@@ -10,18 +10,6 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    cursor: none;
-}
-
-/* sparkly pink cursor that replaces the default mouse pointer */
-#cursor-glow{
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-size: 1.5rem;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
 }
 
 /* the fading glitter trail left behind as the cursor moves */
@@ -148,12 +136,12 @@ margin: 0 auto;
 /* responsive sizing for right now text with clamp css function */
 
 #rightnow h1{
-    font-size: clamp(1.25rem, 10vw , 5rem);
-    
+    font-size: clamp(1.5rem, 4vw , 3rem);
+
 }
 
 #rightnow p{
-    font-size: clamp(1.25rem, 5vw , 3rem);
+    font-size: clamp(1rem, 2vw , 1.5rem);
 }
 
 /* making all projects a grid */
@@ -338,7 +326,7 @@ grid-area: project3;
 }
 
 .project-modal h1{
-    font-size: clamp(6rem, 30vw, 2rem);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     margin-top: 0%;
     margin-left: 4%;
     text-align: left;
@@ -353,7 +341,7 @@ grid-area: project3;
     text-align: center;
     font-family: "helvetica", sans-serif;
     font-weight: 100;
-    font-size: clamp(1.25rem, 6vw, 5rem);
+    font-size: clamp(1.1rem, 2vw, 1.75rem);
 }
 .project-modal p{
     margin-top: 0%;
@@ -361,7 +349,7 @@ grid-area: project3;
     text-align: center;
     font-family: "helvetica", sans-serif;
     font-weight: 100;
-    font-size: clamp(1.25rem, 6vw, 5rem);
+    font-size: clamp(1rem, 1.75vw, 1.5rem);
 }
 
 
@@ -369,21 +357,21 @@ grid-area: project3;
       margin-left: 2%;
 }
 .close-btn{
-    font-size: clamp(1.25rem, 6vw, 5rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: clamp(1.25rem, 6vw, 5rem);
-    height: clamp(1.25rem, 6vw, 5rem);
+    width: clamp(1.75rem, 3vw, 2.5rem);
+    height: clamp(1.75rem, 3vw, 2.5rem);
     background-color:pink;
     padding:0;
     border:none;
-    
+
 }
 /* this is for the game accidental princess */
 
 #story-text{
-    font-size: clamp(1.25rem, 6vw, 5rem);;
+    font-size: clamp(1rem, 1.75vw, 1.5rem);
     font-family: Helvetica;
 }
 
@@ -441,6 +429,25 @@ justify-content: center;
     justify-content: center;
 }
 
+/* small, in-flow lamp for mobile so it doesn't blow up the nav row */
+#lamp-wrap{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48px;
+}
+#lamp{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+#lamp-note{
+    margin-top: 0.25em;
+    font-family: "shantell-sans-bouncy", sans-serif;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
 @media (min-width: 601px){
     #lamp-wrap{
         position: absolute;
@@ -453,15 +460,10 @@ justify-content: center;
         align-items: flex-end;
         text-align: right;
     }
-    #lamp{
-        width: 100%;
-        height: auto;
-        display: block;
-    }
     #lamp-note{
         margin-top: 0.5em;
-        font-family: "shantell-sans-bouncy", sans-serif;
         font-size: 1.1rem;
+        text-align: right;
     }
 }
 

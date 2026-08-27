@@ -1,17 +1,9 @@
-// replaces the mouse pointer with a little pink sparkle, and leaves a
-// trail of fading sparkles behind it as you move
-
-let cursorGlow = document.createElement('div');
-cursorGlow.id = 'cursor-glow';
-cursorGlow.textContent = '✨';
-document.body.appendChild(cursorGlow);
+// leaves a trail of fading pink sparkles behind the mouse as it moves
+// (the cursor image itself comes from the cursors-4u stylesheet in index.html)
 
 let lastSparkleTime = 0;
 
 document.addEventListener('mousemove', function(e){
-  cursorGlow.style.left = e.clientX + 'px';
-  cursorGlow.style.top = e.clientY + 'px';
-
   // only spawn a new trail sparkle every 60ms, otherwise mousemove
   // fires so often it would create hundreds of elements per second
   let now = Date.now();
