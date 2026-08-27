@@ -431,10 +431,12 @@ justify-content: center;
 
 /* small, in-flow lamp for mobile so it doesn't blow up the nav row */
 #lamp-wrap{
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    width: 48px;
+    justify-content: center;
+    width: 80px;
+    margin: 0 auto;
 }
 #lamp{
     width: 100%;
