@@ -15,6 +15,12 @@ function preload(){
            'IMG11.jpeg']
   imgs = files.map(f => loadImage(f)) ;
   vid = createVideo('vid1.mp4');
+  // mobile browsers only allow a video to autoplay if it's actually
+  // muted (not just volume 0) and marked playsinline, or they block it
+  vid.elt.muted = true;
+  vid.elt.setAttribute('muted', '');
+  vid.elt.setAttribute('playsinline', '');
+  vid.elt.setAttribute('webkit-playsinline', '');
   vid.volume(0);
   vid.loop();
   vid.hide();
